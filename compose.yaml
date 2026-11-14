@@ -1,0 +1,43 @@
+name: tracepath-lab
+services:
+  postgres:
+    image: postgres:18@sha256:b9f6b8ff03b62f3cfd9d9ba3fe56226a9991c79d3fb46fd46536263bf02be553
+    environment:
+      POSTGRES_DB: tracepath
+      POSTGRES_USER: tracepath
+      POSTGRES_PASSWORD: disposable-local-only
+    ports: ["127.0.0.1:55432:5432"]
+    volumes: ["./packages/operations/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracepath"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.165.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes: ["./infra/local/collector.yaml:/etc/otelcol/config.yaml:ro", "./.local/evidence:/evidence"]
+    ports: ["127.0.0.1:4318:4318", "127.0.0.1:13133:13133"]
+  worker:
+    build: {context: ., dockerfile: infra/local/Dockerfile}
+    command: ["python", "-m", "uvicorn", "packages.api.worker:app", "--host", "0.0.0.0", "--port", "8001", "--no-access-log"]
+    environment:
+      SOURCE_REVISION: ${SOURCE_REVISION:?Set the checked source commit}
+      OTEL_ENDPOINT: http://collector:4318/v1/traces
+      RAW_DIR: /evidence
+    volumes: ["./models:/app/models:ro", "./.local/evidence:/evidence"]
+    depends_on: [collector]
+  gateway:
+    build: {context: ., dockerfile: infra/local/Dockerfile}
+    environment:
+      SOURCE_REVISION: ${SOURCE_REVISION:?Set the checked source commit}
+      TRACEPATH_PROFILE: lab
+      DATABASE_URL: postgresql://tracepath:disposable-local-only@postgres:5432/tracepath
+      WORKER_URL: http://worker:8001
+      OTEL_ENDPOINT: http://collector:4318/v1/traces
+      RAW_DIR: /evidence
+    ports: ["127.0.0.1:8765:8000"]
+    volumes: ["./.local/evidence:/evidence"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      worker: {condition: service_started}

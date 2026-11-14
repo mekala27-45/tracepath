@@ -1,0 +1,8 @@
+.git
+.local
+models
+web/node_modules
+web/dist
+artifacts/raw
+__pycache__
+.env*
