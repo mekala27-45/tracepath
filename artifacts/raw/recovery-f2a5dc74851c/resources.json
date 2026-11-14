@@ -1,0 +1,1 @@
+{"cpu_seconds":{"gateway":0.8899999999999999,"worker":1.58},"method":"RSS sampled after each request plus OS high water: Windows peak_wset or Linux VmHWM; maximum across observed process generations","os_high_water_rss_bytes":{"collector":374042624,"gateway":98799616,"worker":329236480},"sampled_peak_rss_bytes":{"collector":374042624,"gateway":98799616,"worker":329236480}}

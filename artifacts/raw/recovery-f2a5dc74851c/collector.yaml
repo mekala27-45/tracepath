@@ -1,0 +1,19 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:4318
+exporters:
+  file:
+    path: /home/runner/work/tracepath/tracepath/artifacts/raw/recovery-f2a5dc74851c/collector.jsonl
+    append: true
+    flush_interval: 50ms
+extensions:
+  health_check:
+    endpoint: 127.0.0.1:13133
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [file]
