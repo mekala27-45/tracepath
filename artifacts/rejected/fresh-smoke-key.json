@@ -1,0 +1,6 @@
+{
+  "run_id": "smoke-046c57dfb6a7",
+  "source_revision": "cb248552c178cfeebf7dc2f005ceb437f3ddf02f",
+  "accepted": false,
+  "observation": "The new smoke wrapper emitted a seven-character operation key. The API correctly refused both requests with 422; no receipt or model call was accepted. Corrected wrapper to use a compliant explicit smoke key."
+}

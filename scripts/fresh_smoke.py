@@ -21,7 +21,7 @@ def main():
             rows.append(
                 lab.execute(
                     {
-                        "planned_id": f"fresh-{i}",
+                        "planned_id": f"fresh-smoke-{i}",
                         "query": query,
                         "family": "normal",
                         "lane": "traced",
