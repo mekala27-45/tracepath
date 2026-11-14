@@ -8,4 +8,4 @@ target = ROOT / "web/public/study.json"
 if source.is_file():
     shutil.copyfile(source, target)
 else:
-    target.write_text(json.dumps({"acceptance": "unavailable"})+"\n")
+    target.write_text(json.dumps({"acceptance": "unavailable"}) + "\n")

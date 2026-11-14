@@ -1,4 +1,5 @@
 """Canonical identities for synthetic evidence, never authentication."""
+
 import hashlib
 import json
 from pathlib import Path
@@ -6,8 +7,9 @@ from typing import Any
 
 
 def canonical(value: Any) -> bytes:
-    return json.dumps(value, sort_keys=True, separators=(",", ":"),
-                      ensure_ascii=True, allow_nan=False).encode("utf-8")
+    return json.dumps(
+        value, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False
+    ).encode("utf-8")
 
 
 def digest(value: Any) -> str:

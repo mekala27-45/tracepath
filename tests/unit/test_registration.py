@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 from packages.contracts.identity import digest
 
 ROOT = Path(__file__).resolve().parents[2]

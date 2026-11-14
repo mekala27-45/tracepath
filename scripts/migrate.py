@@ -1,5 +1,7 @@
 """Apply the versioned schema to the dedicated build database only."""
+
 import os
+
 from packages.operations.ledger import Ledger
 
 if __name__ == "__main__":

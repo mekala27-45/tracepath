@@ -1,6 +1,8 @@
 """Evidence eligibility only. Acceptance is produced by independent checks."""
+
 import json
 from pathlib import Path
+
 from packages.contracts.identity import file_digest
 
 
@@ -34,6 +36,8 @@ def metric_sentence(metric: dict) -> str:
     value = metric["value"]
     if not isinstance(value, (int, float)) or not __import__("math").isfinite(value):
         raise EvidenceRefusal("Metric refused: value is not finite.")
-    return (f"{metric['name']}: {value:.3f} {metric['unit']}; denominator "
-            f"{metric['denominator']}. Source {metric['source']}; "
-            f"window {metric['window_start']} to {metric['window_end']}; mode {metric['mode']}.")
+    return (
+        f"{metric['name']}: {value:.3f} {metric['unit']}; denominator "
+        f"{metric['denominator']}. Source {metric['source']}; "
+        f"window {metric['window_start']} to {metric['window_end']}; mode {metric['mode']}."
+    )

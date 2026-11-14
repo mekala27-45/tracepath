@@ -1,11 +1,19 @@
 """Strict boundaries shared by the public and experimental lanes."""
+
 from typing import Annotated, Literal
 from uuid import UUID
+
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 Hash = Annotated[str, Field(pattern=r"^[0-9a-f]{64}$")]
-Mode = Literal["actual_cpu_inference", "deterministic_live", "recorded_experiment",
-               "synthetic_fault", "unavailable", "planned"]
+Mode = Literal[
+    "actual_cpu_inference",
+    "deterministic_live",
+    "recorded_experiment",
+    "synthetic_fault",
+    "unavailable",
+    "planned",
+]
 
 
 class Strict(BaseModel):

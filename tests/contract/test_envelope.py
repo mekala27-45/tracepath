@@ -1,5 +1,6 @@
 import pytest
 from pydantic import ValidationError
+
 from packages.contracts.models import SearchRequest
 
 

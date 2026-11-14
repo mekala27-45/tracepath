@@ -2,7 +2,9 @@ import os
 import subprocess
 import sys
 import uuid
+
 import pytest
+
 from packages.operations.ledger import Ledger, LedgerError
 
 pytestmark = pytest.mark.integration
@@ -21,9 +23,11 @@ def test_readback_replay_conflict_and_foreign_scope(ledger):
     other = ledger.new_session()
     request_id = str(uuid.uuid4())
     calls = []
+
     def produce(scope, connection):
         calls.append(1)
         return {"request_id": request_id, "output_digest": "synthetic"}
+
     first = ledger.execute(token, "ledger-test", "payload", produce)
     assert not first["replay"]
     assert ledger.read(token, request_id)["output_digest"] == "synthetic"
@@ -35,20 +39,29 @@ def test_readback_replay_conflict_and_foreign_scope(ledger):
     with pytest.raises(LedgerError) as foreign:
         ledger.read(other, request_id)
     assert foreign.value.status == 404
-    child = subprocess.run([sys.executable, "-c",
-        "import os; from packages.operations.ledger import Ledger; "
-        "r=Ledger(os.environ['TEST_DATABASE_URL']).read(os.environ['TEST_SESSION'],os.environ['TEST_REQUEST']); "
-        "assert r['output_digest']=='synthetic'; print('independent process readback passed')"],
+    child = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            (
+                "import os; from packages.operations.ledger import Ledger; "
+                "r=Ledger(os.environ['TEST_DATABASE_URL']).read(os.environ['TEST_SESSION'],os.environ['TEST_REQUEST']); "
+                "assert r['output_digest']=='synthetic'; print('independent process readback passed')"
+            ),
+        ],
         env={**os.environ, "TEST_SESSION": token, "TEST_REQUEST": request_id},
-        text=True, capture_output=True, timeout=20)
+        text=True,
+        capture_output=True,
+        timeout=20,
+        check=False,
+    )
     assert child.returncode == 0, child.stderr
 
 
 def test_budget_and_rollback(ledger):
     token = ledger.new_session()
     for i in range(20):
-        ledger.execute(token, f"budget-{i}", str(i),
-            lambda s,c: {"request_id": str(uuid.uuid4())})
+        ledger.execute(token, f"budget-{i}", str(i), lambda s, c: {"request_id": str(uuid.uuid4())})
     with pytest.raises(LedgerError) as full:
-        ledger.execute(token, "budget-extra", "extra", lambda s,c: {})
+        ledger.execute(token, "budget-extra", "extra", lambda s, c: {})
     assert full.value.status == 429

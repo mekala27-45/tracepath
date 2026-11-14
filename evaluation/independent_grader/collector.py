@@ -1,4 +1,5 @@
 """Parse Collector file exporter output, independently of runtime export code."""
+
 import json
 from pathlib import Path
 
@@ -26,10 +27,17 @@ def read_collector(path: Path):
             rattr = attributes(resource.get("resource", {}).get("attributes", []))
             for scope in resource.get("scopeSpans", []):
                 for span in scope.get("spans", []):
-                    spans.append({"name": span["name"], "trace_id": span["traceId"],
-                        "span_id": span["spanId"], "parent_id": span.get("parentSpanId"),
-                        "start_ns": int(span["startTimeUnixNano"]),
-                        "end_ns": int(span["endTimeUnixNano"]),
-                        "service": rattr.get("service.name"), "process_id": rattr.get("process.pid"),
-                        "attributes": attributes(span.get("attributes", []))})
+                    spans.append(
+                        {
+                            "name": span["name"],
+                            "trace_id": span["traceId"],
+                            "span_id": span["spanId"],
+                            "parent_id": span.get("parentSpanId"),
+                            "start_ns": int(span["startTimeUnixNano"]),
+                            "end_ns": int(span["endTimeUnixNano"]),
+                            "service": rattr.get("service.name"),
+                            "process_id": rattr.get("process.pid"),
+                            "attributes": attributes(span.get("attributes", [])),
+                        }
+                    )
     return spans
