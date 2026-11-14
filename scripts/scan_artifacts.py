@@ -18,13 +18,18 @@ def main():
     files = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines()
     candidates = [ROOT / name for name in files]
     candidates += list((ROOT / ".local/logs").rglob("*.log"))
+    candidates += [p for p in (ROOT / "web/dist").rglob("*") if p.is_file()]
     failures = []
     for item in candidates:
         data = item.read_text(encoding="utf-8", errors="replace")
         for name, pattern in RULES.items():
             if pattern.search(data):
                 failures.append({"path": item.relative_to(ROOT).as_posix(), "rule": name})
-        public = item.is_relative_to(ROOT / "artifacts") or item.is_relative_to(ROOT / "web/public")
+        public = (
+            item.is_relative_to(ROOT / "artifacts")
+            or item.is_relative_to(ROOT / "web/public")
+            or item.is_relative_to(ROOT / "web/dist")
+        )
         log = item.suffix == ".log"
         if (public or log) and CANARY in data:
             failures.append({"path": item.relative_to(ROOT).as_posix(), "rule": "synthetic_canary"})

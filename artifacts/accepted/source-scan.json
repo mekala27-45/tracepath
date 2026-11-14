@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "source_revision": "1404ea306eca2bf56b2c4186b3faf090c1578658",
-  "files_checked": 405,
+  "source_revision": "735c800b345b06f318a570ac4ed6e5492aa7ed49",
+  "files_checked": 614,
   "rules": [
     "private_key",
     "github_token",

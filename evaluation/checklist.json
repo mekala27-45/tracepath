@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "requirement": "Source, package, host and model probes are recorded with current identities.",
+    "status": "done",
+    "path": "artifacts/accepted/deployment-preparation.json",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Pinned model and packages ran; the protected host built with an identified source."
+  },
+  {
+    "id": 2,
+    "requirement": "Claim renderer and all required gates pass clean, violated and absent cases.",
+    "status": "done",
+    "path": "tests/unit/test_claims.py",
+    "identity": "735c800b345b06f318a570ac4ed6e5492aa7ed49",
+    "observation": "Claims refuse missing, altered, unaccepted and unregistered-unit evidence; runtime contract and topology fixtures are exercised."
+  },
+  {
+    "id": 3,
+    "requirement": "Corpus, request lineages, topology fixtures and evaluation plan are frozen.",
+    "status": "done",
+    "path": "evaluation/preregistration.json",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "The frozen inventory retains twenty-four lineages and all registered primary and overhead IDs."
+  },
+  {
+    "id": 4,
+    "requirement": "Pinned CPU encoder actually runs and copied kernel contracts pass.",
+    "status": "done",
+    "path": "artifacts/raw/linux-model-smoke-1193110a8e3f.json",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Two actual CPU calls matched the independent ONNX path within the declared tolerance."
+  },
+  {
+    "id": 5,
+    "requirement": "Two real processes propagate context with valid request isolation.",
+    "status": "done",
+    "path": "artifacts/accepted/recovery.json",
+    "identity": "recovery-f2a5dc74851c / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Separate worker and gateway processes preserved identities during concurrent requests."
+  },
+  {
+    "id": 6,
+    "requirement": "The ledger and trace checker independently reconcile topology and identity.",
+    "status": "done",
+    "path": "artifacts/manifests/study-459aa21b5ffe.json",
+    "identity": "study-459aa21b5ffe / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Independent raw Collector parsing and database exports rederive the accepted report."
+  },
+  {
+    "id": 7,
+    "requirement": "Retries, missing spans and collector outage preserve honest status.",
+    "status": "done",
+    "path": "artifacts/accepted/study.json",
+    "identity": "study-459aa21b5ffe / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Transient retries, deliberate child loss and stopped Collector cases retain explicit status."
+  },
+  {
+    "id": 8,
+    "requirement": "Public API contracts and scoped receipt transactions are implemented.",
+    "status": "done",
+    "path": "tests/contract/test_public_api.py",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Real database integration covers scoped create, read, replay, conflict and public boundaries."
+  },
+  {
+    "id": 9,
+    "requirement": "Functional live lexical API passes browser, client and database readback.",
+    "status": "not done",
+    "path": "docs/DEPLOYMENT.md",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "The preview built, but database environment configuration and public access are not approved or verified."
+  },
+  {
+    "id": 10,
+    "requirement": "Every primary scenario and overhead request is accounted for by planned ID.",
+    "status": "done",
+    "path": "artifacts/accepted/study.json",
+    "identity": "study-459aa21b5ffe / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "All twenty-four primary and seventy-two overhead requests remain in the planned denominator."
+  },
+  {
+    "id": 11,
+    "requirement": "Traced/untraced agreement and overhead are measured without invented claims.",
+    "status": "done",
+    "path": "artifacts/accepted/study.json",
+    "identity": "study-459aa21b5ffe / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "All twelve business-output pairs match; overhead is descriptive over thirty-six pairs."
+  },
+  {
+    "id": 12,
+    "requirement": "Crash recovery has fresh independent post-action evidence.",
+    "status": "done",
+    "path": "artifacts/accepted/recovery.json",
+    "identity": "recovery-f2a5dc74851c / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Exit code eighty-six was followed by a new gateway PID and one-receipt replay from a fresh process."
+  },
+  {
+    "id": 13,
+    "requirement": "Telemetry allowlists and synthetic secret-canary checks pass.",
+    "status": "done",
+    "path": "artifacts/accepted/recovery.json",
+    "identity": "recovery-f2a5dc74851c / 1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "The synthetic marker is absent from exported evidence; source and service-log scans are recorded separately."
+  },
+  {
+    "id": 14,
+    "requirement": "Four views, both themes, palette and browser accessibility checks pass.",
+    "status": "not done",
+    "path": "artifacts/accepted/browser-checks.json",
+    "identity": "be7e286a23fade1811f45804a8cbfc09dd0754db",
+    "observation": "Twenty-four responsive combinations, keyboard focus and tables passed; actual zoom and reduced-motion checks remain unverified."
+  },
+  {
+    "id": 15,
+    "requirement": "Reuse notices, ADRs, repository guidance and three local skills exist.",
+    "status": "done",
+    "path": "docs/ADR-002-independent-evidence.md",
+    "identity": "6ff25160ac66fd2ce5de7dcb609686701a2424c6",
+    "observation": "Three ADRs, license notices, runbooks and three repository-local skills are present."
+  },
+  {
+    "id": 16,
+    "requirement": "CI, actual CPU evidence and retained failure records pass review.",
+    "status": "done",
+    "path": "https://github.com/mekala27-45/tracepath/actions/runs/43547284163",
+    "identity": "1193110a8e3f91a944d5137d704b367c9776051a",
+    "observation": "Linux CPU execution, full inventory, retention, recovery, lint and frontend build passed with rejected runs retained."
+  },
+  {
+    "id": 17,
+    "requirement": "A clean worktree rederives metrics and executes fresh smoke inference.",
+    "status": "done",
+    "path": "artifacts/accepted/clean-reproduction.json",
+    "identity": "smoke-b77d96156882 / d6f6f323dd365b4d2e21ba2b684407a676f106d3",
+    "observation": "A detached clean checkout rederived claims, matched direct inference and accepted two fresh HTTP retrievals."
+  },
+  {
+    "id": 18,
+    "requirement": "Meaningful commit floor, final checklist and authorized tag/release are verified.",
+    "status": "not done",
+    "path": "PROJECT_STATE.md",
+    "identity": "735c800b345b06f318a570ac4ed6e5492aa7ed49",
+    "observation": "The substantive commit floor is exceeded; the tag and release remain absent while core gates are open."
+  }
+]
