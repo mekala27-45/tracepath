@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "tracepath-workbench"
 version = "0.1.0"
 description = "Independent retrieval trace and receipt reconciliation"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = ["fastapi==0.162.7", "uvicorn==0.54.0", "httpx==0.28.1", "psycopg[binary]==3.3.9", "rank-bm25==0.2.2", "opentelemetry-sdk==1.45.2", "opentelemetry-exporter-otlp-proto-http==1.45.2"]
 
 [project.optional-dependencies]

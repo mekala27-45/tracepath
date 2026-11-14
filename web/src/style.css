@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .paired-chart{align-items:stretch;height:240px;background:linear-gradient(transparent 99px,var(--control) 99px,var(--control) 101px,transparent 101px)}.pair-bar{position:relative;display:block;height:200px}.pair-bar>span{position:absolute;left:10%}.pair-bar small{position:absolute;top:205px;left:20%}.route{overflow-wrap:anywhere;min-width:0}.brand-mark{width:22px;height:22px;border:2px solid currentColor;border-radius:50%;font-size:18px;line-height:17px;text-align:center}
+
+.availability{border-left:3px solid var(--warning);padding:12px 18px;background:var(--surface);font-size:13px;margin-bottom:26px}button:disabled{cursor:not-allowed}
