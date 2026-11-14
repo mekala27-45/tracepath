@@ -1,5 +1,6 @@
 """Independent OTLP projection grading. Does not import instrumentation code."""
 
+import re
 from collections import Counter
 
 REQUIRED = {
@@ -49,6 +50,11 @@ def grade(spans, receipt, expected_attempts=None):
     traces = {s.get("trace_id") for s in spans}
     if len(traces) != 1:
         invalid.append("multiple trace IDs")
+    if any(
+        not isinstance(t, str) or not re.fullmatch(r"[0-9a-f]{32}", t) or int(t, 16) == 0
+        for t in traces
+    ):
+        invalid.append("invalid trace ID")
     for span in spans:
         attr = span.get("attributes", {})
         for field in (
@@ -64,9 +70,15 @@ def grade(spans, receipt, expected_attempts=None):
         start, end = span.get("start_ns"), span.get("end_ns")
         if not isinstance(start, int) or not isinstance(end, int) or end < start:
             invalid.append("invalid duration")
-        if not isinstance(span.get("span_id"), str) or len(span["span_id"]) != 16:
+        if (
+            not isinstance(span.get("span_id"), str)
+            or not re.fullmatch(r"[0-9a-f]{16}", span["span_id"])
+            or int(span["span_id"], 16) == 0
+        ):
             invalid.append("invalid span ID")
         name = span.get("name")
+        if name not in REQUIRED:
+            invalid.append("unknown operation")
         expected_service = "tracepath-worker" if name in WORKER else "tracepath-gateway"
         if span.get("service") != expected_service:
             invalid.append("service identity mismatch")
@@ -100,6 +112,13 @@ def grade(spans, receipt, expected_attempts=None):
         for s in spans
         if s.get("name") == "worker.request"
     }
+    per_attempt = Counter(
+        (s.get("attributes", {}).get("attempt_id"), s.get("name"))
+        for s in spans
+        if s.get("name") in WORKER | {"worker.http"}
+    )
+    if any(count > 1 for count in per_attempt.values()):
+        invalid.append("duplicate physical operation")
     if expected_attempts is not None:
         known = {a["attempt_id"] for a in expected_attempts}
         if observed_attempts - known:

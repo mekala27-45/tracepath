@@ -91,3 +91,19 @@ def test_same_process_is_not_boundary():
     for span in spans:
         span["process_id"] = 1
     assert grade(spans, receipt)["verdict"] == "invalid"
+
+
+def test_duplicate_operation_with_distinct_span_id_is_invalid():
+    spans, receipt = fixture()
+    duplicate = deepcopy(spans[4])
+    duplicate["span_id"] = "f" * 16
+    spans.append(duplicate)
+    assert grade(spans, receipt)["verdict"] == "invalid"
+
+
+@pytest.mark.parametrize("trace_id", ["0" * 32, "z" * 32, None])
+def test_invalid_trace_identity_is_refused(trace_id):
+    spans, receipt = fixture()
+    for span in spans:
+        span["trace_id"] = trace_id
+    assert grade(spans, receipt)["verdict"] == "invalid"

@@ -72,6 +72,7 @@ class Lab:
         self.collector = self.worker = self.gateway = None
         self.started_at = stamp()
         self.peak_rss = {}
+        self.high_water_rss = {}
 
     def start_process(self, command, label):
         log_dir = ROOT / ".local/logs" / self.run_id
@@ -264,8 +265,16 @@ service:
             ("collector", self.collector),
         ):
             try:
-                value = psutil.Process(proc.pid).memory_info().rss
+                info = psutil.Process(proc.pid).memory_info()
+                value = info.rss
                 self.peak_rss[name] = max(value, self.peak_rss.get(name, 0))
+                high_water = getattr(info, "peak_wset", None)
+                if sys.platform == "linux":
+                    status = Path(f"/proc/{proc.pid}/status").read_text()
+                    line = next((s for s in status.splitlines() if s.startswith("VmHWM:")), None)
+                    high_water = int(line.split()[1]) * 1024 if line else None
+                if high_water is not None:
+                    self.high_water_rss[name] = max(high_water, self.high_water_rss.get(name, 0))
             except psutil.Error:
                 pass
 
@@ -298,9 +307,11 @@ service:
 
     def close(self):
         self.export_ledger()
+        self.sample_resources()
         resources = {
             "sampled_peak_rss_bytes": self.peak_rss,
-            "method": "psutil RSS sampled after every request; not a continuous peak",
+            "os_high_water_rss_bytes": self.high_water_rss,
+            "method": "RSS sampled after each request plus OS high water: Windows peak_wset or Linux VmHWM; maximum across observed process generations",
         }
         resources["cpu_seconds"] = {}
         for name, proc in (("gateway", self.gateway), ("worker", self.worker)):
