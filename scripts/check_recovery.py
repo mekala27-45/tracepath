@@ -27,7 +27,7 @@ def main():
         try:
             httpx.post(GATEWAY+"/experiment/search", headers=headers, json=payload, timeout=20, trust_env=False)
             raise AssertionError("Gateway did not lose its response.")
-        except httpx.RemoteProtocolError:
+        except (httpx.RemoteProtocolError, httpx.ReadError):
             pass
         lab.gateway.wait(timeout=10)
         result.update(crashed_pid=old_pid, observed_exit_code=lab.gateway.returncode)
