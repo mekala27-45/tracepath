@@ -39,6 +39,8 @@ def ready():
 @app.post("/retrieve")
 def retrieve(envelope: Envelope, traceparent: str | None = Header(default=None),
              x_lab_fault: str = Header(default="none")):
+    if envelope.source_revision != os.environ["SOURCE_REVISION"]:
+        raise HTTPException(409, "Worker source identity mismatch.")
     if envelope.model_bundle_digest != kernel.encoder.bundle_digest or envelope.corpus_digest != kernel.corpus_digest:
         raise HTTPException(409, "Worker artifact identity mismatch.")
     if digest(envelope.query) != envelope.payload_digest:

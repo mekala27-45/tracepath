@@ -38,6 +38,10 @@ class Ledger:
     def new_session(self):
         token = secrets.token_urlsafe(32)
         with self.connection() as connection:
+            connection.execute("SELECT pg_advisory_xact_lock(29412026)")
+            active = connection.execute("SELECT count(*) FROM tracepath.sessions WHERE expires_at>now()").fetchone()[0]
+            if active >= 100:
+                raise LedgerError(429, "Demo capacity is full. Try again after an existing session expires.")
             connection.execute("INSERT INTO tracepath.sessions VALUES (%s,now()+interval '1 hour',20)",
                                (scope(token),))
         return token
