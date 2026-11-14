@@ -31,6 +31,8 @@ def metric_sentence(metric: dict) -> str:
     required = ("name", "unit", "denominator", "window_start", "window_end", "mode", "source")
     if any(key not in metric for key in required):
         raise EvidenceRefusal("Metric refused: provenance or units missing.")
+    if metric["unit"] not in {"requests", "pairs", "ms"}:
+        raise EvidenceRefusal("Metric refused: unit is not registered.")
     if metric["value"] is None or metric["denominator"] <= 0:
         return f"{metric['name']}: unavailable."
     value = metric["value"]

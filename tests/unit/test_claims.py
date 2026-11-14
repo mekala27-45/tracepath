@@ -61,3 +61,6 @@ def test_no_observations_never_becomes_zero():
     del m["unit"]
     with pytest.raises(EvidenceRefusal):
         metric_sentence(m)
+    m["unit"] = "seconds"
+    with pytest.raises(EvidenceRefusal, match="unit is not registered"):
+        metric_sentence(m)

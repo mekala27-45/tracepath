@@ -24,6 +24,7 @@ jobs:
           --health-cmd "pg_isready -U tracepath"
           --health-interval 5s --health-timeout 3s --health-retries 10
     env:
+      PYTHONHASHSEED: 19
       DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
       OWNER_DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
       TEST_DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
@@ -48,6 +49,8 @@ jobs:
         run: python -m scripts.migrate
       - name: Verify checked-in study hashes and derivation
         run: python -m scripts.verify_evidence
+      - name: Verify derivation under another hash seed
+        run: PYTHONHASHSEED=71 python -m scripts.verify_evidence
       - name: Run contract and integration tests
         run: python -m pytest -q
       - name: Check Python quality
