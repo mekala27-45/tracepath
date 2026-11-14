@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "accepted": true,
+  "frontend_url": "https://mekala27-45.github.io/tracepath/",
+  "api_url": "https://tracepath-api.vercel.app",
+  "frontend_source_revision": "48753d88cc472947a002c2a8af74eed5d44792ff",
+  "api_source_revision": "48753d88cc472947a002c2a8af74eed5d44792ff",
+  "deployment_id": "dpl_7SxuGejSrHgtwiAdDhsQFsW8bAHw",
+  "pages_run": "https://github.com/mekala27-45/tracepath/actions/runs/43552642896",
+  "integration_run": "https://github.com/mekala27-45/tracepath/actions/runs/43552642939",
+  "public_client_evidence": "public-client.json",
+  "browser_evidence": "hosted-browser-checks.json",
+  "independent_database_readback": {
+    "provider": "Neon",
+    "database": "tracepath",
+    "method": "Separate read-only SQL connection queried exact request IDs. No session tokens or database credentials are retained.",
+    "rows": [
+      {
+        "request_id": "88351e7f-dbd0-4f42-b52f-953d344f9b1d",
+        "output_digest": "79e13e6896855788f0402199b813a8677f9c00349e6b95595ede5cc0211f5dc6",
+        "mode": "deterministic_live",
+        "source_revision": "15986d2a598dfe8fb70d6a07ef6b67d549dc1c95"
+      },
+      {
+        "request_id": "46e2fe4e-d86f-4906-90cf-81e1171b4cd6",
+        "output_digest": "372d5cfec16895e7b982cb9bf96e5018e6e2045aa9e0fee402549f837c96ff1c",
+        "mode": "deterministic_live",
+        "source_revision": "48753d88cc472947a002c2a8af74eed5d44792ff",
+        "result_count": 5
+      }
+    ]
+  },
+  "authorization": "User explicitly approved the restricted runtime credential and publication of only tracepath-api.",
+  "runtime_profile": "public",
+  "experimental_route_disabled": true,
+  "database_role": "tracepath_app",
+  "database_grants": "SELECT, INSERT, UPDATE on scoped session, receipt and attempt tables. No owner credential in runtime.",
+  "release_status": "Pending native browser zoom and reduced-motion checks."
+}

@@ -12,7 +12,7 @@ I built Tracepath to distinguish retrieval completion from telemetry completenes
 
 ## Interview card B
 
-The initial recovery harness expected one HTTP transport exception. Windows reported a connection reset as another transport exception after the deliberate process exit. I accepted both transport-loss types and verified a new process returned the existing receipt with one physical attempt. The failed run remains in the repository. Public hosted verification is still open.
+The initial recovery harness expected one HTTP transport exception. Windows reported a connection reset as another transport exception after the deliberate process exit. I accepted both transport-loss types and verified a new process returned the existing receipt with one physical attempt. The failed run remains in the repository. Public lexical requests, replay and independent receipt readback are verified.
 
 ## Resume draft
 
@@ -28,7 +28,7 @@ For Tracepath, I kept the business ledger outside the telemetry path. The decidi
 
 ## LinkedIn option C: failure
 
-A retrieval response can survive a Collector outage. Tracepath retains the committed receipt and marks the missing trace unavailable. A separate recovery test kills the gateway after commit and checks replay from a fresh process. The evidence applies to the declared workload and environment. Public hosting remains pending.
+A retrieval response can survive a Collector outage. Tracepath retains the committed receipt and marks the missing trace unavailable. A separate recovery test kills the gateway after commit and checks replay from a fresh process. The evidence applies to the declared workload and environment. Public lexical requests, replay and independent receipt readback are verified.
 
 ## Accepted values for these drafts
 

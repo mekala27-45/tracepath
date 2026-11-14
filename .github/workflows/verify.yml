@@ -51,6 +51,10 @@ jobs:
         run: python -m scripts.verify_evidence
       - name: Verify derivation under another hash seed
         run: PYTHONHASHSEED=71 python -m scripts.verify_evidence
+      - name: Check generated claims match retained evidence
+        run: |
+          python -m scripts.render_claims
+          git diff --exit-code -- README.md RESULTS.md docs/CAREER_KIT.md
       - name: Run contract and integration tests
         run: python -m pytest -q
       - name: Check Python quality

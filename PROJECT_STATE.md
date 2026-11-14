@@ -1,16 +1,18 @@
 # Tracepath project state
 
-Day 29 implementation is complete on build/tracepath; release is not done.
-Review: https://github.com/mekala27-45/tracepath/pull/1
+The Day 29 implementation is merged and the live workbench is published.
+Live: https://mekala27-45.github.io/tracepath/
+API: https://tracepath-api.vercel.app
+Merged review: https://github.com/mekala27-45/tracepath/pull/1
 
-The promoted actual CPU study is study-459aa21b5ffe from source 1193110a8e3f91a944d5137d704b367c9776051a. The Linux job is https://github.com/mekala27-45/tracepath/actions/runs/43547284163. The reviewed results branch is results/linux-1193110. All 24 primary and 72 overhead requests are accounted for; all 12 traced/untraced output pairs match. Current values are generated in RESULTS.md from the accepted report.
+The accepted CPU experiment remains study-459aa21b5ffe at source 1193110a8e3f91a944d5137d704b367c9776051a. All 24 primary and 72 overhead requests are retained. All 12 traced and untraced business-output pairs match. The generated RESULTS.md retains the exact workload, denominators and measured values.
 
-Clean reproduction passed at d6f6f323dd365b4d2e21ba2b684407a676f106d3 with run smoke-b77d96156882. Fresh direct-model agreement and two complete HTTP traces with independent readbacks are retained. Failed smoke wrappers and raw observations remain available.
+Public deployment at 48753d88cc472947a002c2a8af74eed5d44792ff passed ordinary-client checks, hosted browser creation and replay, full request-ID copy and independent Neon readback. The deployed runtime uses the restricted tracepath_app role and public profile. The user explicitly authorized configuring its credential and public access. No owner credential is deployed. Experimental routes remain disabled.
 
-The workbench builds. A browser created and replayed a live lexical receipt. Twenty-four viewport/theme/view combinations had no horizontal overflow. Keyboard focus and table alternatives worked. Computer Use stopped because the native Windows browser URL could not be verified. Actual 200 percent zoom, reduced-motion verification, and a browser recheck after the publication-state change remain open.
+Both main-branch workflows passed: integration run 43552642939 and Pages run 43552642896. The earlier branch deployment failed because the existing Pages environment only allowed main. The tested PR was merged to use that existing protection; the rule was not weakened. Future non-main builds now skip the deployment job.
 
-The dedicated Neon project is on Free with a limited runtime role. Vercel project tracepath-api built a protected preview at source 1193110a8e3f91a944d5137d704b367c9776051a. No runtime environment values are configured. Automatic review rejected removing SSO protection without explicit user authorization. Protection remains enabled. No ordinary public-client persistence check is claimed.
+The hosted UI passed all 24 combinations of widths 390, 768 and 1440, both themes and four views without horizontal overflow. Full ID copy, visible keyboard focus, loading state, empty-query blocking and the table alternatives passed. See artifacts/accepted/hosted-browser-checks.json.
 
-GitHub Pages deployment is prepared in .github/workflows/pages.yml. It is not yet published. Production live search defaults to unavailable until the API is independently verified.
+Gates 14 and 18 remain not done. Native browser input was interrupted by concurrent input, then the browser runtime failed after the workspace permission paths changed. Actual 200 percent browser zoom and reduced-motion emulation are still unverified. No tag or release is claimed. The substantive commit floor is exceeded.
 
-The substantive commit floor is exceeded. No tag or release exists. Gates 09, 14 and 18 remain not done. RESULTS.md is authoritative. No social posts, messages, profile edits or schedules were created.
+The canonical branch is main. A separate older local build/day-29-tracepath checkout is not the canonical implementation and must not overwrite this history. No social posts, messages, profile edits or schedules were created.

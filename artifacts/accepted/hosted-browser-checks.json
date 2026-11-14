@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "source_revision": "48753d88cc472947a002c2a8af74eed5d44792ff",
+  "origin": "https://mekala27-45.github.io/tracepath/",
+  "observed_at": "2026-11-14T03:39:03.751569+00:00",
+  "widths": [
+    390,
+    768,
+    1440
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "views": [
+    "Request",
+    "Trace",
+    "Coverage",
+    "Method"
+  ],
+  "responsive_cases": 24,
+  "horizontal_overflow_cases": 0,
+  "application_console_errors": 0,
+  "excluded_console_warnings": "Two warnings came from an unrelated installed browser extension.",
+  "fresh_receipt_readback": true,
+  "identical_replay": true,
+  "full_id_copy_verified_by_paste": true,
+  "request_id": "46e2fe4e-d86f-4906-90cf-81e1171b4cd6",
+  "visible_keyboard_focus": true,
+  "keyboard_focus_outline": "solid, 2.66667 CSS px",
+  "empty_query_blocked": true,
+  "loading_state_observed": true,
+  "table_rows": {
+    "method": 37,
+    "coverage": 25,
+    "live_trace": 3
+  },
+  "actual_200_percent_zoom": false,
+  "reduced_motion_verified": false,
+  "accepted": false,
+  "blocker": "Native browser input was repeatedly interrupted by concurrent input. The browser runtime later failed to initialize after the workspace permission paths changed. No zoom or reduced-motion success is claimed.",
+  "cases": [
+    {
+      "width": 390,
+      "theme": "light",
+      "view": "Request",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "view": "Trace",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "view": "Coverage",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "view": "Method",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "view": "Request",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "view": "Trace",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "view": "Coverage",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "view": "Method",
+      "actual_width": 390,
+      "page_width": 375,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "view": "Request",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "view": "Trace",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "view": "Coverage",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "view": "Method",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "view": "Request",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "view": "Trace",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "view": "Coverage",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "view": "Method",
+      "actual_width": 768,
+      "page_width": 753,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "Request",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "Trace",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "Coverage",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "Method",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "Request",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "Trace",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "Coverage",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "Method",
+      "actual_width": 1440,
+      "page_width": 1425,
+      "horizontal_overflow": false
+    }
+  ]
+}

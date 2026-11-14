@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "accepted": true,
+  "observed_at": "2026-11-14T03:38:25.739807+00:00",
+  "api_url": "https://tracepath-api.vercel.app",
+  "api_source_revision": "15986d2a598dfe8fb70d6a07ef6b67d549dc1c95",
+  "verification_source_revision": "48753d88cc472947a002c2a8af74eed5d44792ff",
+  "request_id": "78ed2062-6ee7-48f3-9d3c-1a74ab95098f",
+  "output_digest": "79e13e6896855788f0402199b813a8677f9c00349e6b95595ede5cc0211f5dc6",
+  "corpus_digest": "a4e70e49edb00780d627f4564445e2859be902ddc51116c239b5a8819b43e676",
+  "mode": "deterministic_live",
+  "fresh_client_readback": true,
+  "fresh_client_replay": true,
+  "conflict_status": 409,
+  "foreign_session_status": 404,
+  "invalid_query_status": 422,
+  "experimental_route_status": 404,
+  "wrong_origin_status": 403,
+  "trace_verdict": "incomplete",
+  "credential_scope": "Ephemeral demo sessions only; no database credential used."
+}

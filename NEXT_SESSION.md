@@ -1,15 +1,13 @@
-# Continue from the actual branch
+# Finish the remaining native browser checks
 
-Read AGENTS.md, PROJECT_STATE.md, RESULTS.md and docs/DEPLOYMENT.md. Fetch current heads and PR checks before editing. Preserve concurrent changes. The implementation branch is build/tracepath and the review is pull request 1.
+Read AGENTS.md, PROJECT_STATE.md, RESULTS.md and docs/DEPLOYMENT.md. Fetch the current main head and workflow results before editing. Preserve concurrent changes. Pull request 1 is merged. The canonical branch is main.
 
-The next external action needs explicit approval: configure the dedicated tracepath_app database credential in Vercel and remove SSO protection only for the new tracepath-api demo. Automatic review rejected that access reduction. Do not retry through another transport without authorization. If the ephemeral credential is unavailable, rotate only the dedicated application role through the owner connection and put the new value directly in the authorized secret store. Never print it.
+The public API credential and publication were explicitly authorized and completed. Do not ask for that approval again. Keep the restricted tracepath_app role and public profile. No owner credential or lab routes belong in public runtime.
 
-After approval, set DATABASE_URL as sensitive and ALLOWED_ORIGIN for the final Pages origin. Use the deployed Git SHA for source identity. Redeploy the final reviewed commit and record ordinary browser, second-client replay and independent database readback. Keep the lab profile disabled.
+The remaining mandatory verification is actual 200 percent browser zoom and reduced motion on https://mekala27-45.github.io/tracepath/. Browser input was interrupted, then its runtime could not initialize after malformed cross-platform workspace permission paths appeared. Restore a working browser session before these checks. Do not equate a narrow viewport with actual zoom or a source CSS rule with observed reduced-motion behavior.
 
-Resume browser verification when Computer Use can establish the active URL. Test actual 200 percent zoom, reduced motion, loading/error/recovery, full ID copy and the latest frontend across required widths and themes. Earlier responsive checks do not close these missing checks.
+Retain the existing successful hosted browser and independent public-client/database evidence. All four views at 390, 768 and 1440 in both themes passed; full ID copy, keyboard focus, loading state, input blocking and table alternatives passed. Do not repeat these unless code or deployment changes make that necessary.
 
-Enable GitHub Pages with Actions as its source. Set TRACEPATH_API_URL and TRACEPATH_LIVE_ENABLED=true only after public API verification. Verify the published revision after the final change.
+After the two missing observations pass, update gate 14 and retain exact source identities. Run the required verification, regenerate claims, confirm the final hosted revision, and create the authorized tag and release only when all mandatory gates are supported. Then record gate 18 with the actual tag, release and source identities. A short demo recording can follow. Do not claim a recording that does not exist.
 
-Run python -m scripts.verify_evidence, python -m scripts.render_claims, python -m scripts.scan_artifacts, pytest with disposable database credentials, and the frontend build. The Linux workflow runs actual inference and all scenarios. A skipped integration is not a pass.
-
-Update evaluation/checklist.json with exact source and run identities, then regenerate RESULTS.md and README.md. Only after all eighteen gates are done should the PR be marked ready, merged, tagged and released. Prepare a short recorded demo after the final live check. Leave unrelated projects and schedules unchanged.
+Use the GitHub connector and Actions if local runtime remains unavailable. Never replace current main with the separate older local implementation. No social messages or unrelated project changes.

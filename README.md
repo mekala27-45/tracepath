@@ -6,7 +6,7 @@ Portfolio observability experiment around a small retrieval service. The corpus 
 
 ## Status and evidence
 
-Implementation and actual CPU experiments are working. Public API verification and release remain pending. Read the full eighteen-line [checklist](RESULTS.md), [setup and recovery guide](docs/RUNBOOK.md), [method](docs/METHOD.md), and [review branch](https://github.com/mekala27-45/tracepath/pull/1).
+The [live workbench](https://mekala27-45.github.io/tracepath/) and lexical API are published and verified. Final release remains pending. See the checklist for open gates. Read the full eighteen-line [checklist](RESULTS.md), [setup and recovery guide](docs/RUNBOOK.md), [method](docs/METHOD.md), and [review branch](https://github.com/mekala27-45/tracepath/pull/1).
 
 Source 1193110a8e3f91a944d5137d704b367c9776051a; run study-459aa21b5ffe; recorded 2026-11-14T02:38:01.443506+00:00.
 

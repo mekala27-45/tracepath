@@ -21,6 +21,19 @@ def main():
     verify()
     report = json.loads((ROOT / "artifacts/accepted/study.json").read_text())
     checklist = json.loads((ROOT / "evaluation/checklist.json").read_text())
+    live_verified = any(e["id"] == 9 and e["status"] == "done" for e in checklist)
+    release_verified = any(e["id"] == 18 and e["status"] == "done" for e in checklist)
+    publication = (
+        "The [live workbench](https://mekala27-45.github.io/tracepath/) and lexical API are published and verified. "
+        if live_verified else "Public hosted verification remains pending. "
+    ) + (
+        "All core acceptance gates and the release are verified."
+        if release_verified else "Final release remains pending. See the checklist for open gates."
+    )
+    hosted = (
+        "Public lexical requests, replay and independent receipt readback are verified."
+        if live_verified else "Public hosted verification remains pending."
+    )
     identity = f"Source {report['source_revision']}; run {report['run_id']}; recorded {report['timestamp']}."
     metrics = "\n\n".join(metric_sentence(m) for m in report["metrics"])
     table = "| Gate | Status | Evidence and identity | Observation |\n| --- | --- | --- | --- |\n"
@@ -61,7 +74,7 @@ Tracepath answers two separate questions: did retrieval commit, and did we obser
 
 ## Status and evidence
 
-Implementation and actual CPU experiments are working. Public API verification and release remain pending. Read the full eighteen-line [checklist](RESULTS.md), [setup and recovery guide](docs/RUNBOOK.md), [method](docs/METHOD.md), and [review branch](https://github.com/mekala27-45/tracepath/pull/1).
+{publication} Read the full eighteen-line [checklist](RESULTS.md), [setup and recovery guide](docs/RUNBOOK.md), [method](docs/METHOD.md), and [review branch](https://github.com/mekala27-45/tracepath/pull/1).
 
 {identity}
 
@@ -106,7 +119,7 @@ I built Tracepath to distinguish retrieval completion from telemetry completenes
 
 ## Interview card B
 
-The initial recovery harness expected one HTTP transport exception. Windows reported a connection reset as another transport exception after the deliberate process exit. I accepted both transport-loss types and verified a new process returned the existing receipt with one physical attempt. The failed run remains in the repository. Public hosted verification is still open.
+The initial recovery harness expected one HTTP transport exception. Windows reported a connection reset as another transport exception after the deliberate process exit. I accepted both transport-loss types and verified a new process returned the existing receipt with one physical attempt. The failed run remains in the repository. {hosted}
 
 ## Resume draft
 
@@ -122,7 +135,7 @@ For Tracepath, I kept the business ledger outside the telemetry path. The decidi
 
 ## LinkedIn option C: failure
 
-A retrieval response can survive a Collector outage. Tracepath retains the committed receipt and marks the missing trace unavailable. A separate recovery test kills the gateway after commit and checks replay from a fresh process. The evidence applies to the declared workload and environment. Public hosting remains pending.
+A retrieval response can survive a Collector outage. Tracepath retains the committed receipt and marks the missing trace unavailable. A separate recovery test kills the gateway after commit and checks replay from a fresh process. The evidence applies to the declared workload and environment. {hosted}
 
 ## Accepted values for these drafts
 {values}
