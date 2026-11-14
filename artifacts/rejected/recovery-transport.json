@@ -1,1 +1,5 @@
-{"schema_version":1,"run_id":"recovery-transport-initial","status":"failed_harness","observation":"Windows reported a connection reset as httpx.ReadError after gateway death. The first harness only caught RemoteProtocolError. The committed receipt and raw records were retained. The harness now accepts either transport symptom and still requires observed exit code 86 and fresh independent replay."}
+{
+  "run_id": "recovery-1ccf4a5f47a5",
+  "accepted": false,
+  "reason": "Initial harness expected RemoteProtocolError, but Windows surfaced ReadError after the deliberate gateway exit. Raw attempt retained. Updated harness accepts both transport loss types and rerun is independently recorded."
+}
