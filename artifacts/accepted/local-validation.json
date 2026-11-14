@@ -1,0 +1,19 @@
+{
+  "source_revision": "735c800b345b06f318a570ac4ed6e5492aa7ed49",
+  "recorded_at": "2026-11-14T02:50:31.197Z",
+  "pytest": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0,
+    "warning": "Starlette httpx TestClient deprecation"
+  },
+  "ruff": "passed",
+  "typescript_vite_build": "passed",
+  "runtime_credential_scan": "absent",
+  "repo_local_skills": 3,
+  "clean_reproduction": "smoke-b77d96156882",
+  "limits": [
+    "Browser publication-state changes have not been rechecked after native Computer Use stopped.",
+    "Public API access and runtime environment remain unverified."
+  ]
+}

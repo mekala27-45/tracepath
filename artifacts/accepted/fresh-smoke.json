@@ -1,0 +1,1 @@
+{"accepted":true,"actual_http_requests":2,"grades":[{"missing":[],"observed_attempts":1,"observed_spans":10,"reasons":[],"verdict":"complete"},{"missing":[],"observed_attempts":1,"observed_spans":10,"reasons":[],"verdict":"complete"}],"run_id":"smoke-b77d96156882","source_revision":"d6f6f323dd365b4d2e21ba2b684407a676f106d3"}

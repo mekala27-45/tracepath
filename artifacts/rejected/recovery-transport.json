@@ -1,0 +1,5 @@
+{
+  "run_id": "recovery-1ccf4a5f47a5",
+  "accepted": false,
+  "reason": "Initial harness expected RemoteProtocolError, but Windows surfaced ReadError after the deliberate gateway exit. Raw attempt retained. Updated harness accepts both transport loss types and rerun is independently recorded."
+}

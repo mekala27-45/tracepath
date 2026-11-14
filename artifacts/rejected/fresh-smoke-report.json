@@ -1,0 +1,6 @@
+{
+  "run_id": "smoke-b804f5eab747",
+  "source_revision": "334d2c4cd05f4ca808bc05eef807be61b3f791d4",
+  "accepted": false,
+  "observation": "Both fresh HTTP inferences committed and separate readbacks succeeded. The wrapper incorrectly looked for the derived independent_readback field in raw clients instead of http_readback, so no acceptance report was produced. The fix independently reconciles readback digest and database receipt and handles absent rows."
+}

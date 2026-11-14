@@ -1,0 +1,56 @@
+{
+  "source_revision": "d6f6f323dd365b4d2e21ba2b684407a676f106d3",
+  "run_id": "smoke-b77d96156882",
+  "clean_checkout": true,
+  "rederivation": "passed",
+  "direct_model_agreement": true,
+  "actual_http_requests": 2,
+  "independent_readback": true,
+  "artifacts": [
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/clients.jsonl",
+      "sha256": "ad287c1325401cca88fda1405c3702296b4d41b7144c9d03b68dc733a6438854"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/collector.jsonl",
+      "sha256": "c3bab5b679a128bc26424aab4d96095c2dacbfb8b69f6b8b91dc32dc111bfe94"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/collector.yaml",
+      "sha256": "3ce0bad13267084134817e4fa3a556137f5485abffa81a21688d99f2ae3230e9"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/environment.json",
+      "sha256": "84ca066ba676c79a7831bdc362e37de96f85d90d2890793bb5dad351d09a953d"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/gateway-export.jsonl",
+      "sha256": "0ca7198bd79ab54ae095115068c8f776abb0d1d8e63d618983724673f8760c71"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/ledger.json",
+      "sha256": "29ec067c1a3c3ac5ec5af468c5975a089eb1312dc9fcfe6d34155695c1f888fd"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/resources.json",
+      "sha256": "0ce45043821321ea72052e0aac3de7d7069307aee4ce2ce59cdb1ad510f7b6d7"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/window.json",
+      "sha256": "2cc69e1e338d6ceb02cb26958b2e5d6621e8154359a238a55d046da8ac8bc482"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/worker-381a2099-d31d-429b-a3ea-154e251be7de.json",
+      "sha256": "1281bf9ea0333542601c8f3c449fc07c35e93bde5fb50ba80678e12e5067c91b"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/worker-b4c02963-2620-4b23-bf61-9bf8031c6e89.json",
+      "sha256": "eef83628097947719a961b1d108e1e3795b8b6d4892032a818bb1d89627d6caa"
+    },
+    {
+      "path": "artifacts/raw/smoke-b77d96156882/worker-export.jsonl",
+      "sha256": "3cdd1e82a24c679cffef91bb95aff54bab25e422ad3a1bc6d794dc5c279ed8a0"
+    }
+  ],
+  "hosted_verification": false
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "project": "tracepath-api",
+  "deployment_id": "dpl_BdfMKwN4VCWvoXyU7z59LAGa5FZ3",
+  "preview": "https://tracepath-d3u20t03q-mekala27-45s-projects.vercel.app",
+  "build_state": "READY",
+  "source_revision": "1193110a8e3f91a944d5137d704b367c9776051a",
+  "ordinary_public_client_verified": false,
+  "environment_variables_configured": false,
+  "sso_protection": "retained",
+  "blocked_action": "Remove SSO protection from the new demo API",
+  "reason": "Automatic approval review rejected the persistent access-control reduction without explicit user authorization.",
+  "database": "Dedicated Neon Free project; runtime role limited to SELECT INSERT UPDATE; credential omitted.",
+  "release": false
+}
