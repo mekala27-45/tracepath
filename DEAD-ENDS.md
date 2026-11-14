@@ -11,3 +11,5 @@ The initial database probe used a startup statement_timeout option with a
 pooled connection returned by the provider. The pooler rejected that parameter.
 The driver now sets a transaction-local timeout after connecting, and migration
 uses the direct endpoint. This failure is retained instead of hidden by a retry.
+
+GitHub runner container initialization rejected single-quoted health command arguments. No test had run. Changed the job option to double quotes and retained run 43546446504 as failed evidence.

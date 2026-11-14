@@ -14,7 +14,7 @@ services:
       timeout: 2s
       retries: 30
   collector:
-    image: otel/opentelemetry-collector-contrib:0.165.0
+    image: otel/opentelemetry-collector-contrib:0.165.0@sha256:e40d61f10c9a617cca1ffd1be4d7e2b3a4b0f0001798ff07e58cabe82e618cea
     command: ["--config=/etc/otelcol/config.yaml"]
     volumes: ["./infra/local/collector.yaml:/etc/otelcol/config.yaml:ro", "./.local/evidence:/evidence"]
     ports: ["127.0.0.1:4318:4318", "127.0.0.1:13133:13133"]
