@@ -23,7 +23,9 @@ class Ledger:
         self.url = url
 
     def connection(self):
-        return psycopg.connect(self.url, connect_timeout=5, options="-c statement_timeout=10000")
+        connection = psycopg.connect(self.url, connect_timeout=5)
+        connection.execute("SET LOCAL statement_timeout = '10s'")
+        return connection
 
     def initialize(self):
         with self.connection() as connection:
