@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source_revision": "1404ea306eca2bf56b2c4186b3faf090c1578658",
+  "files_checked": 405,
+  "rules": [
+    "private_key",
+    "github_token",
+    "neon_credential",
+    "synthetic_canary"
+  ],
+  "failures": [],
+  "scope": "Tracked source and artifacts plus local service logs; not a security certificate."
+}

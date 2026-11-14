@@ -25,6 +25,7 @@ jobs:
           --health-interval 5s --health-timeout 3s --health-retries 10
     env:
       DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
+      OWNER_DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
       TEST_DATABASE_URL: postgresql://tracepath:ci-disposable-password@127.0.0.1:5432/tracepath
       COLLECTOR_BINARY: /tmp/tracepath-collector/otelcol-contrib
     steps:
@@ -51,6 +52,8 @@ jobs:
         run: python -m pytest -q
       - name: Check Python quality
         run: python -m ruff check packages evaluation/independent_grader scripts tests
+      - name: Scan retained source and evidence
+        run: python -m scripts.scan_artifacts
       - name: Validate palette
         run: python scripts/validators/palette_validator.py palette.json
       - name: Download pinned model

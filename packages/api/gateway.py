@@ -26,7 +26,7 @@ from packages.operations.telemetry import Telemetry, incoming
 ledger = None
 telemetry = None
 LAB = os.environ.get("TRACEPATH_PROFILE") == "lab"
-REVISION = os.environ.get("SOURCE_REVISION", "unavailable")
+REVISION = os.environ.get("SOURCE_REVISION", os.environ.get("VERCEL_GIT_COMMIT_SHA", "unavailable"))
 CORPUS_DIGEST = digest(corpus())
 LEXICAL_IDENTITY = digest(
     {

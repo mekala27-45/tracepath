@@ -1,0 +1,14 @@
+.git
+.local
+.venv
+models
+web
+tests
+infra
+scripts
+evaluation
+*.zip
+artifacts/rejected
+__pycache__
+.pytest_cache
+.ruff_cache

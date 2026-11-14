@@ -10,7 +10,10 @@ $deadline = (Get-Date).AddSeconds(90)
 do {
     try {
         $ready = Invoke-RestMethod -Uri http://127.0.0.1:8765/ready -TimeoutSec 2
-        if ($ready.ready) { Write-Output 'Gateway dependencies ready.'; exit 0 }
+        if ($ready.ready) {
+            python -m scripts.smoke_http
+            exit $LASTEXITCODE
+        }
     } catch { Start-Sleep -Milliseconds 250 }
 } while ((Get-Date) -lt $deadline)
 Write-Error 'Observed readiness deadline exceeded.'
