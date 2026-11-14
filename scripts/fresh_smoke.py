@@ -36,19 +36,27 @@ def main():
     spans = read_collector(lab.directory / "collector.jsonl")
     ledger = json.loads((lab.directory / "ledger.json").read_text())
     verdicts = []
+    readbacks = []
     for row in rows:
-        receipt = next(r for r in ledger["receipts"] if r["request_id"] == row["request_id"])
+        receipt = next(
+            (r for r in ledger["receipts"] if r["request_id"] == row.get("request_id")), None
+        )
+        readbacks.append(
+            bool(
+                receipt
+                and row.get("http_readback")
+                and receipt["output_digest"] == row.get("output_digest")
+            )
+        )
         verdicts.append(
             grade(
-                [s for s in spans if s["attributes"].get("request_id") == row["request_id"]],
+                [s for s in spans if s["attributes"].get("request_id") == row.get("request_id")],
                 receipt,
-                receipt["attempts"],
+                receipt["attempts"] if receipt else None,
             )
         )
     accepted = (
-        len(rows) == 2
-        and all(r["independent_readback"] for r in rows)
-        and all(g["verdict"] == "complete" for g in verdicts)
+        len(rows) == 2 and all(readbacks) and all(g["verdict"] == "complete" for g in verdicts)
     )
     report = {
         "accepted": accepted,
