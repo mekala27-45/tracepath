@@ -1,7 +1,7 @@
 name: Publish recorded workbench
 on:
   push:
-    branches: [main]
+    branches: [main, build/tracepath]
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,14 +23,22 @@ jobs:
           node-version: '24.19.0'
           cache: npm
           cache-dependency-path: web/package-lock.json
+      - name: Verify public API before enabling live search
+        run: python -m scripts.verify_live
       - name: Verify and export recorded study
         run: python -m scripts.export_web
       - name: Build workbench
         working-directory: web
         env:
-          VITE_API_URL: ${{ vars.TRACEPATH_API_URL }}
-          VITE_LIVE_ENABLED: ${{ vars.TRACEPATH_LIVE_ENABLED }}
+          VITE_API_URL: https://tracepath-api.vercel.app
+          VITE_LIVE_ENABLED: 'true'
         run: npm ci && npm run build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: public-client-verification
+          path: artifacts/accepted/public-client.json
+          retention-days: 14
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
