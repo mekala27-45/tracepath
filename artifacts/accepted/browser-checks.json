@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "source_revision": "be7e286a23fade1811f45804a8cbfc09dd0754db",
+  "frontend_changes": "Signed chart scale and font subsets present; later publication flag not covered by this UI pass.",
+  "origin": "http://127.0.0.1:5173",
+  "widths": [
+    390,
+    768,
+    1440
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "views": [
+    "Request",
+    "Trace",
+    "Coverage",
+    "Method"
+  ],
+  "responsive_cases": 24,
+  "horizontal_overflow_cases": 0,
+  "browser_console_errors": 0,
+  "fresh_receipt_readback": true,
+  "identical_replay": true,
+  "visible_keyboard_focus": true,
+  "keyboard_table_toggle": true,
+  "table_rows": {
+    "method": 37,
+    "coverage": 25,
+    "trace": 10
+  },
+  "actual_200_percent_zoom": false,
+  "reduced_motion_verified": false,
+  "blocker": "Computer Use stopped because the native Windows browser URL could not be verified with sufficient confidence."
+}
