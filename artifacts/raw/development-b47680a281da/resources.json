@@ -1,0 +1,1 @@
+{"cpu_seconds":{"gateway":0.0,"worker":0.0},"method":"psutil RSS sampled after every request; not a continuous peak","sampled_peak_rss_bytes":{"collector":123252736,"gateway":4386816,"worker":4386816}}
