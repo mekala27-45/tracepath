@@ -221,8 +221,8 @@ if LAB:
                     "output_digest": digest(result["hits"]), "timestamp": datetime.now(timezone.utc).isoformat(),
                     "context_status": context_status, "trace": {"verdict": "unavailable",
                     "explanation": "Collector observations are reconciled independently after completion."}}
-            with telemetry.span("receipt.commit", attrs, body.telemetry):
-                result = ledger.execute(session_token, body.operation_key, digest(body.query), produce)
+            result = ledger.execute(session_token, body.operation_key, digest(body.query), produce,
+                commit_span=lambda: telemetry.span("receipt.commit", attrs, body.telemetry))
             if body.fault == "crash_after_commit":
                 os._exit(86)
             with telemetry.span("response", attrs, body.telemetry):

@@ -1,6 +1,7 @@
 """Atomic receipt persistence; connection ownership is explicit."""
 import hashlib
 import secrets
+from contextlib import nullcontext
 from datetime import datetime, timezone
 from pathlib import Path
 import psycopg
@@ -39,7 +40,7 @@ class Ledger:
                                (scope(token),))
         return token
 
-    def execute(self, token, key, payload_digest, produce):
+    def execute(self, token, key, payload_digest, produce, commit_span=nullcontext):
         session_scope = scope(token)
         with self.connection() as connection:
             session = connection.execute("SELECT expires_at,remaining FROM tracepath.sessions "
@@ -56,11 +57,13 @@ class Ledger:
             if session[1] <= 0:
                 raise LedgerError(429, "Session budget exhausted. Start a new demo session later.")
             receipt = produce(session_scope, connection)
-            connection.execute("INSERT INTO tracepath.receipts(request_id,session_scope,operation_key,"
-                "payload_digest,receipt) VALUES (%s,%s,%s,%s,%s)",
-                (receipt["request_id"], session_scope, key, payload_digest, Jsonb(receipt)))
-            connection.execute("UPDATE tracepath.sessions SET remaining=remaining-1 WHERE session_scope=%s",
-                               (session_scope,))
+            with commit_span():
+                connection.execute("INSERT INTO tracepath.receipts(request_id,session_scope,operation_key,"
+                    "payload_digest,receipt) VALUES (%s,%s,%s,%s,%s)",
+                    (receipt["request_id"], session_scope, key, payload_digest, Jsonb(receipt)))
+                connection.execute("UPDATE tracepath.sessions SET remaining=remaining-1 WHERE session_scope=%s",
+                                   (session_scope,))
+                connection.commit()
         # The connection context has committed before returning.
         return {**receipt, "replay": False}
 
